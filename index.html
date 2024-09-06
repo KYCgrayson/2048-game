@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048遊戲</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #faf8ef;
+        }
+        #game-board {
+            position: relative; /* 改為相對定位 */
+            width: 430px; /* 4 * 100px (tile width) + 3 * 10px (gap) */
+            height: 430px;
+            display: block; /* 改變顯示方式 */
+            background-color: #bbada0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc0b3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 3px;
+            position: absolute; /* 改為絕對定位 */
+            transition: all 0.25s ease-in-out; /* 增加過渡時間 */
+        }
+        .tile-2 { background-color: #eee4da; color: #776e65; }
+        .tile-4 { background-color: #ede0c8; color: #776e65; }
+        .tile-8 { background-color: #f2b179; color: #f9f6f2; }
+        .tile-16 { background-color: #f59563; color: #f9f6f2; }
+        .tile-32 { background-color: #f67c5f; color: #f9f6f2; }
+        .tile-64 { background-color: #f65e3b; color: #f9f6f2; }
+        .tile-128 { background-color: #edcf72; color: #f9f6f2; }
+        .tile-256 { background-color: #edcc61; color: #f9f6f2; }
+        .tile-512 { background-color: #edc850; color: #f9f6f2; }
+        .tile-1024 { background-color: #edc53f; color: #f9f6f2; }
+        .tile-2048 { background-color: #edc22e; color: #f9f6f2; }
+        #score {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        #controls {
+            margin: 20px 0;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+        .tile-new {
+            animation: appear 0.25s ease-in-out;
+        }
+        @keyframes appear {
+            0% { 
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>2048遊戲</h1>
+    <div id="score">分數: <span id="score-value">0</span></div>
+    <div id="game-board"></div>
+    <div id="controls">
+        <button id="new-game">新遊戲</button>
+        <button id="undo">撤銷</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
